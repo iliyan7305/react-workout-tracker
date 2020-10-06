@@ -11,10 +11,8 @@ function App() {
         <Route path="/" element={<HomePage />}>
           <Route path="schedule/:id" element={<DayPlannerContainer />} />
         </Route>{" "}
-        // calendar
-        <Route path="/workouts" element={<Workouts />}></Route> // create, edit,
-        <Route path="/exercises" element={<Exercises />}></Route> // create,
-        edit, delete workouts
+        <Route path="/workouts" element={<Workouts />}></Route>
+        <Route path="/exercises" element={<Exercises />}></Route>
       </Routes>
     </div>
   );

@@ -17,8 +17,12 @@ export default function DayContainer({ firstDayOfWeek, index }) {
   const [workouts, setWorkouts] = useState(<WorkoutSmall />);
 
   useEffect(() => {
-    let date = new Date();
-    date.setDate(firstDayOfWeek.getDate() + index);
+    let date = new Date(
+      firstDayOfWeek.getFullYear(),
+      firstDayOfWeek.getMonth(),
+      firstDayOfWeek.getDate() + index
+    );
+
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let dayName = conf.weekDaysShort[date.getDay()];
@@ -31,13 +35,7 @@ export default function DayContainer({ firstDayOfWeek, index }) {
       dayName: dayName,
       dateNumber: dateNumber,
     });
-  }, []);
+  }, [firstDayOfWeek, index]);
 
-  // day of week name
-  // month
-  // year
-  // date number
-  // meals ? comp
-  // workouts ? comp
   return <DayRender {...state} meals={meals} workouts={workouts} />;
 }
