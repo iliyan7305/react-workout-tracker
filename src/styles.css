@@ -81,3 +81,68 @@ body {
   background: #1abc9c;
   color: white !important;
 }
+
+/* Workout List */
+ul.workouts-list {
+  background-color: beige;
+}
+
+ul.workouts-list .workout {
+  padding: 10px;
+  margin: 10px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+}
+
+ul.workouts-list .workout .exercise {
+  padding: 5px;
+}
+
+/* exercise card */
+.exercise-card {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(175, 89, 255);
+  border-radius: 5px;
+}
+
+.exercise-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+/* modals */
+.modal {
+  font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
