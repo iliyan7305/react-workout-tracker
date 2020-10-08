@@ -112,6 +112,15 @@ ul.workouts-list .workout .exercise {
   cursor: pointer;
 }
 
+.exercise-card .exercise-name {
+  display: inline-block;
+  width: 20%;
+}
+
+.exercise-card .exercise-add {
+  display: inline-block;
+}
+
 /* modals */
 .modal {
   font-size: 12px;
@@ -145,4 +154,8 @@ ul.workouts-list .workout .exercise {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #cfcece;
+}
+
+.exercise-card-workouts .child {
+  display: inline-block;
 }

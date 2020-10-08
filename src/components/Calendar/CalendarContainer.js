@@ -6,10 +6,6 @@ import NextWeek from "./NextWeek";
 export default function Calendar() {
   const [date, setDate] = useState(new Date(Date.now()));
 
-  useEffect(() => {
-    console.log("date in calendate container " + date);
-  }, [date]);
-
   const showPrevWeek = () => {
     let newDate = new Date(
       date.getFullYear(),

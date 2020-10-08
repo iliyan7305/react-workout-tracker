@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import ExerciseModalEdit from "./ExerciseModalEdit";
 
-export default function ExerciseNewContainer() {
-  const [exercise, setExercise] = useState({});
-
-  return <ExerciseModalEdit Trigger={ExerciseNew} />;
+export default function ExerciseNewContainer({ addExercise, updateExercises }) {
+  return (
+    <ExerciseModalEdit
+      Trigger={ExerciseNew}
+      addExercise={addExercise}
+      updateExercises={updateExercises}
+    />
+  );
 }
 
 function ExerciseNew({ onClick }) {

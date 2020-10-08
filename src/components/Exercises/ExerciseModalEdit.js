@@ -1,7 +1,13 @@
 import React from "react";
 import Popup from "reactjs-popup";
+import { Formik, Field, Form } from "formik";
 
-export default function ExerciseModalEdit({ Trigger, exercise }) {
+export default function ExerciseModalEdit({
+  Trigger,
+  exercise,
+  addExercise,
+  updateExercises,
+}) {
   return (
     <Popup trigger={<Trigger exercise={exercise} />} modal nested>
       {(close) => (
@@ -9,10 +15,42 @@ export default function ExerciseModalEdit({ Trigger, exercise }) {
           <button className="close" onClick={close}>
             &times;
           </button>
-          <div className="header"> Edit {exercise && exercise.name} </div>
-          <div className="content">{exercise && exercise.notes}</div>
+          <ExerciseModalForm
+            close={close}
+            exercise={exercise}
+            addExercise={addExercise}
+            updateExercises={updateExercises}
+          />
         </div>
       )}
     </Popup>
+  );
+}
+
+function ExerciseModalForm({ exercise, addExercise, updateExercises, close }) {
+  return (
+    <div>
+      <div className="header"> Edit {exercise && exercise.name} </div>
+      <Formik
+        initialValues={{
+          name: "",
+          notes: "",
+        }}
+        onSubmit={(values) => {
+          addExercise(values);
+          updateExercises();
+          close();
+        }}
+      >
+        <Form className="content">
+          <label htmlFor="name">First Name</label>
+          <Field id="name" name="name" placeholder="Jane" />
+
+          <label htmlFor="notes">Last Name</label>
+          <Field id="notes" name="notes" placeholder="Doe" />
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+    </div>
   );
 }

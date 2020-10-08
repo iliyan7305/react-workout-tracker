@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage, Workouts, Exercises } from "../pages";
 import { Header, DayPlannerContainer } from "../components";
+import ExercisesDataProvider from "./ExercisesDataProvider";
 
 function App() {
   return (
@@ -12,7 +13,12 @@ function App() {
           <Route path="schedule/:id" element={<DayPlannerContainer />} />
         </Route>{" "}
         <Route path="/workouts" element={<Workouts />}></Route>
-        <Route path="/exercises" element={<Exercises />}></Route>
+        <Route
+          path="/exercises"
+          element={
+            <ExercisesDataProvider render={(data) => <Exercises {...data} />} />
+          }
+        ></Route>
       </Routes>
     </div>
   );
