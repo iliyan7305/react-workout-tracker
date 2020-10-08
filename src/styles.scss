@@ -1,7 +1,20 @@
+$primary_color_one: #1a1a2e;
+$primary_color_two: #16213e;
+$primary_color_three: #0f3460;
+$primary_color_four: #e94560;
+$secondary_color_four: #eb546d;
+$primary_font_color: black;
+$secondary_font_color: white;
+
 * {
+  color: $primary_font_color;
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: beige;
 }
 
 ul {
@@ -84,19 +97,54 @@ body {
 
 /* Workout List */
 ul.workouts-list {
-  background-color: beige;
+  .workout {
+    background-color: $primary_color_two;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 5px 5px 15px rgba($primary_color_two, 0.5);
+    border-radius: 10px;
+
+    * {
+      color: $secondary_font_color;
+    }
+
+    .exercise {
+      padding: 5px;
+      margin: 15px;
+      background-color: $primary_color_four;
+      box-shadow: 2px 2px 5px 1px rgba($primary_color_four, 0.5);
+      border-radius: 10px;
+      transition: background 0.3s, box-shadow 0.3s;
+
+      &:hover {
+        background: $secondary_color_four;
+        box-shadow: 5px 5px 5px 1px rgba($primary_color_four, 0.5);
+      }
+    }
+  }
 }
 
-ul.workouts-list .workout {
-  padding: 10px;
-  margin: 10px;
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-}
+/* New Workout */
+.new-workout-button {
+  width: 100px;
+  button {
+    border: 0;
+    border-radius: 0.25rem;
+    background: $primary_color_four;
+    color: white;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+  }
 
-ul.workouts-list .workout .exercise {
-  padding: 5px;
+  button:focus {
+    box-shadow: 5px 5px 5px 1px rgba($primary_color_four, 0.5);
+  }
 }
 
 /* exercise card */
@@ -158,4 +206,37 @@ ul.workouts-list .workout .exercise {
 
 .exercise-card-workouts .child {
   display: inline-block;
+}
+
+/* Navbar */
+nav {
+  background: $primary_color_three;
+  display: flex;
+
+  .logo {
+    background: $primary_color_four;
+    margin-right: 50px;
+    padding: 10px;
+    span {
+      color: $secondary_font_color;
+    }
+  }
+
+  ul {
+    display: flex;
+    li {
+      padding: 10px;
+      transition: background 0.3s;
+
+      &:hover,
+      &:focus {
+        background-color: $primary_color_two;
+      }
+
+      a {
+        color: $secondary_font_color;
+        text-decoration: none;
+      }
+    }
+  }
 }

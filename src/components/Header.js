@@ -1,14 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export default function Header() {
   return (
     <header className="App-header">
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/workouts">Workouts</Link>
-        <Link to="/exercises">Exercises</Link>
-      </nav>
+      <Navbar />
     </header>
   );
 }

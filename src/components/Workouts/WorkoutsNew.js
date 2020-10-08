@@ -6,5 +6,9 @@ export default function WorkoutsNewContainer({ addWorkout }) {
 }
 
 function WorkoutNew({ onClick }) {
-  return <button onClick={onClick}>&#43; New</button>;
+  return (
+    <div className="new-workout-button">
+      <button onClick={onClick}>&#43; New</button>
+    </div>
+  );
 }
