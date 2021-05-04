@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import WorkoutsList from "../components/Workouts/WorkoutsListContainer";
-import WorkoutsNewContainer from "../components/Workouts/WorkoutsNewContainer";
+import React, { useEffect, useState } from "react";
 
-export default function Workouts() {
+export default function WorkoutsDataProvider({ render }) {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
@@ -29,10 +27,11 @@ export default function Workouts() {
     updateWorkouts();
   };
 
-  return (
-    <div>
-      <WorkoutsNewContainer addWorkout={addWorkout} />
-      <WorkoutsList workouts={workouts} />
-    </div>
-  );
+  let data = {
+    workouts: workouts,
+    updateWorkouts: updateWorkouts,
+    addWorkout: addWorkout,
+  };
+
+  return <div>{render(data)}</div>;
 }

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import conf from "../../conf/helper";
 import DayRender from "./DayRender";
 import { MealsSmall, WorkoutSmall } from "../";
+import DayPlannerModal from "./DayPlannerModal";
 
-export default function DayContainer({ firstDayOfWeek, index }) {
+export default function DayContainer({ firstDayOfWeek, index, dayHelpers }) {
+  const [date, setDate] = useState();
   const [state, setState] = useState({
     month: "",
     year: "",
@@ -23,6 +25,8 @@ export default function DayContainer({ firstDayOfWeek, index }) {
       firstDayOfWeek.getDate() + index
     );
 
+    setDate(date);
+
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let dayName = conf.weekDaysShort[date.getDay()];
@@ -37,5 +41,13 @@ export default function DayContainer({ firstDayOfWeek, index }) {
     });
   }, [firstDayOfWeek, index]);
 
-  return <DayRender {...state} meals={meals} workouts={workouts} />;
+  return (
+    <DayPlannerModal
+      render={(data) => (
+        <DayRender {...state} meals={meals} workouts={workouts} />
+      )}
+      date={date}
+      dayHelpers={dayHelpers}
+    />
+  );
 }

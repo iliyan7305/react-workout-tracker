@@ -26,10 +26,16 @@ body {
 
 /* Month header */
 .month {
-  padding: 70px 0px;
+  padding: 20px 0px;
   width: 100%;
-  background: #1abc9c;
+  background: $primary_color_one;
   text-align: center;
+  font-size: 2rem;
+  color: $secondary_font_color;
+
+  .year {
+    color: $secondary_font_color;
+  }
 }
 
 /* Month list */
@@ -61,14 +67,27 @@ body {
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color: #ddd;
-}
+  background-color: $primary_color_two;
 
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
+  * {
+    color: $secondary_font_color;
+  }
+
+  li {
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    border-right: 1px solid white;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
 }
 
 /* Days (1-31) */
@@ -126,6 +145,28 @@ ul.workouts-list {
 
 /* New Workout */
 .new-workout-button {
+  width: 100px;
+  button {
+    border: 0;
+    border-radius: 0.25rem;
+    background: $primary_color_four;
+    color: white;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    cursor: pointer;
+  }
+
+  button:focus {
+    box-shadow: 5px 5px 5px 1px rgba($primary_color_four, 0.5);
+  }
+}
+
+.styled-button {
   width: 100px;
   button {
     border: 0;
@@ -217,6 +258,7 @@ nav {
     background: $primary_color_four;
     margin-right: 50px;
     padding: 10px;
+
     span {
       color: $secondary_font_color;
     }
@@ -236,6 +278,21 @@ nav {
       a {
         color: $secondary_font_color;
         text-decoration: none;
+      }
+    }
+  }
+}
+
+/* Modal */
+#popup-root {
+  .popup-content {
+    background: $primary_color_two;
+    border: 1px solid $primary_color_two;
+    border-radius: 10px;
+
+    .modal {
+      * {
+        color: $secondary_font_color;
       }
     }
   }

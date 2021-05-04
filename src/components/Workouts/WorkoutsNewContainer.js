@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import WorkoutModalEdit from "./WorkoutModalEdit";
 
 export default function WorkoutsNewContainer({ addWorkout }) {
-  return <WorkoutModalEdit Trigger={WorkoutNew} addWorkout={addWorkout} />;
+  return (
+    <WorkoutModalEdit
+      render={(data) => <WorkoutNew {...data} />}
+      addWorkout={addWorkout}
+    />
+  );
 }
 
 function WorkoutNew({ onClick }) {

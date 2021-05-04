@@ -4,9 +4,9 @@ import { Formik, Field, FieldArray, Form } from "formik";
 import WorkoutFormExercisesList from "./WorkoutFormExercisesList";
 import ExercisesDataProvider from "../ExercisesDataProvider";
 
-export default function WorkoutModalEdit({ Trigger, workout, addWorkout }) {
+export default function WorkoutModalEdit({ render, workout, addWorkout }) {
   return (
-    <Popup trigger={<Trigger workout={workout} />} modal nested>
+    <Popup trigger={render({ workout: workout })} modal nested>
       {(close) => (
         <div className="modal">
           <button className="close" onClick={close}>

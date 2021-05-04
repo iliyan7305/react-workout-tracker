@@ -1,13 +1,11 @@
-import React from 'react';
-import {Calendar} from '../components';
-import {Outlet} from 'react-router-dom';
+import React from "react";
+import { Calendar } from "../components";
+import DayDataProvider from "../components/DayDataProvider";
 
 export default function HomePage() {
-    return (
-        <div>
-            HomePage
-            <Calendar />
-            <Outlet />
-        </div>
-    );
+  return (
+    <div>
+      <DayDataProvider render={(data) => <Calendar {...data} />} />
+    </div>
+  );
 }

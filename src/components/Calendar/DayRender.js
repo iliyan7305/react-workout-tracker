@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function DayRender({
   month,
@@ -8,16 +7,17 @@ export default function DayRender({
   dateNumber,
   meals,
   workouts,
+  onClick,
 }) {
   return (
-    <Link to={"/schedule/" + year + "-" + month + "-" + dateNumber}>
+    <a onClick={onClick}>
       <div>
-        <h1>{dayName}</h1>
-        <h1>{dateNumber}</h1>
+        <h1 className="name">{dayName}</h1>
+        <h1 className="number">{dateNumber}</h1>
       </div>
 
       {meals}
       {workouts}
-    </Link>
+    </a>
   );
 }

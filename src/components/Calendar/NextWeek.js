@@ -1,5 +1,10 @@
 import React from "react";
+import StyledButtonWrapper from "../StyledButtonWrapper";
 
 export default function NextWeek({ next }) {
-  return <button onClick={next}>next week</button>;
+  return (
+    <StyledButtonWrapper
+      render={() => <button onClick={next}>next week</button>}
+    />
+  );
 }

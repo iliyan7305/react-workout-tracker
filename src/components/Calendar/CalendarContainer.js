@@ -3,7 +3,7 @@ import { DayContainer } from "../Calendar";
 import PrevWeek from "./PrevWeek";
 import NextWeek from "./NextWeek";
 
-export default function Calendar() {
+export default function Calendar({ dayHelpers }) {
   const [date, setDate] = useState(new Date(Date.now()));
 
   const showPrevWeek = () => {
@@ -35,12 +35,17 @@ export default function Calendar() {
   return (
     <div>
       <Month date={date} next={nextMonth} prev={prevMonth} />
-      <WeekDays date={date} next={showNextWeek} prev={showPrevWeek} />
+      <WeekDays
+        date={date}
+        next={showNextWeek}
+        prev={showPrevWeek}
+        dayHelpers={dayHelpers}
+      />
     </div>
   );
 }
 
-function WeekDays({ date, next, prev }) {
+function WeekDays({ date, next, prev, dayHelpers }) {
   const [daysHtmlArr, setDaysHtmlArr] = useState([]);
 
   useEffect(() => {
@@ -56,8 +61,12 @@ function WeekDays({ date, next, prev }) {
 
     for (let i = 0; i < 7; i++) {
       htmlArr.push(
-        <li key={i}>
-          <DayContainer firstDayOfWeek={firstDayOfWeek} index={i} />
+        <li key={i} className="day">
+          <DayContainer
+            firstDayOfWeek={firstDayOfWeek}
+            index={i}
+            dayHelpers={dayHelpers}
+          />
         </li>
       );
     }
@@ -68,8 +77,8 @@ function WeekDays({ date, next, prev }) {
   return (
     <div>
       <PrevWeek prev={prev} />
-      <ul className="weekdays">{daysHtmlArr}</ul>
       <NextWeek next={next} />
+      <ul className="weekdays">{daysHtmlArr}</ul>
     </div>
   );
 }
@@ -94,9 +103,9 @@ function Month({ date, next, prev }) {
           &#10095;
         </li>
         <li>
-          {state.month}
+          <span className="month">{state.month}</span>
           <br></br>
-          <span style={{ fontSize: 18 + "px" }}>{state.year}</span>
+          <span className="year">{state.year}</span>
         </li>
       </ul>
     </div>

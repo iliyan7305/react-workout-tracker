@@ -43,11 +43,11 @@ function ExerciseModalForm({ exercise, addExercise, updateExercises, close }) {
         }}
       >
         <Form className="content">
-          <label htmlFor="name">First Name</label>
-          <Field id="name" name="name" placeholder="Jane" />
+          <label htmlFor="name">Exercise Name</label>
+          <Field id="name" name="name" />
 
-          <label htmlFor="notes">Last Name</label>
-          <Field id="notes" name="notes" placeholder="Doe" />
+          <label htmlFor="notes">Notes</label>
+          <Field id="notes" name="notes" />
           <button type="submit">Submit</button>
         </Form>
       </Formik>
